@@ -49,8 +49,9 @@ class _TaskPageState extends State<TaskPage> {
                 IconButton(
                   icon: const Icon(Icons.add),
                   onPressed: () async {
-                    if (_controller.text.trim().isNotEmpty) {
-                      await _taskService.addTask(_controller.text.trim());
+                    final text = _controller.text.trim();
+                    if (text.isNotEmpty) {
+                      await _taskService.addTask(text);
                       _controller.clear();
                     }
                   },
@@ -82,12 +83,29 @@ class _TaskPageState extends State<TaskPage> {
                     itemCount: docs.length,
                     itemBuilder: (context, index) {
                       final task = docs[index];
-                      final text = task['text'];
+                      final data = task.data() as Map<String, dynamic>;
+
+                      final text = data['text'] ?? '';
+                      final isDone = data['isDone'] ?? false;
 
                       return ListTile(
-                        title: Text(text),
+                        leading: Checkbox(
+                          value: isDone,
+                          onChanged: (value) {
+                            task.reference.update({'isDone': value});
+                          },
+                        ),
+                        title: Text(
+                          text,
+                          style: TextStyle(
+                            decoration:
+                                isDone ? TextDecoration.lineThrough : null,
+                            color: isDone ? Colors.grey : null,
+                          ),
+                        ),
                         trailing: IconButton(
-                          icon: const Icon(Icons.delete, color: Colors.red),
+                          icon:
+                              const Icon(Icons.delete, color: Colors.redAccent),
                           onPressed: () async {
                             await _taskService.deleteTask(task.id);
                           },

@@ -6,10 +6,12 @@ class TaskService {
   final taskRef = FirebaseFirestore.instance.collection('users');
 
   Future<void> addTask(String text) async {
-    await taskRef.doc(userId).collection('tasks').add({
-      'text': text,
-      'createdAt': Timestamp.now(),
-    });
+   await taskRef.doc(userId).collection('tasks').add({
+  'text': text,
+  'createdAt': Timestamp.now(),
+  'isDone': false, // ✅ yeni alan
+});
+
   }
 
   Stream<QuerySnapshot> getTasks() {
