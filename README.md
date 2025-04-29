@@ -1,16 +1,26 @@
-# taskify_app
+# 📝 Taskify Web
 
-A new Flutter project.
+Flutter + Firebase tabanlı basit görev yönetim uygulaması.  
+Kullanıcılar kayıt olabilir, giriş yapabilir, görev ekleyip silebilir. Web platformu için tasarlanmıştır.
 
-## Getting Started
+## 🚀 Özellikler
+- ✅ Firebase Auth ile kullanıcı kayıt/giriş sistemi
+- ✅ Firestore veritabanı ile görevleri saklama
+- ✅ Görev ekleme, silme ve tamamlama (checkbox ile)
+- ✅ Giriş yapmadan erişim engeli
+- ✅ Şifre yanlışsa uyarı mesajı
+- ✅ Flutter Web uyumlu
 
-This project is a starting point for a Flutter application.
+## 🛠️ Kullanılan Teknolojiler
+- Flutter (3.x)
+- Firebase Auth
+- Cloud Firestore
+- Dart
+- VS Code
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🔧 Kurulum
+```bash
+git clone https://github.com/aybukegozler/taskify_web.git
+cd taskify_web
+flutter pub get
+flutter run -d chrome
