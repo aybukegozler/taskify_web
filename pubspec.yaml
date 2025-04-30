@@ -1,6 +1,6 @@
 name: taskify_app
 description: "A new Flutter project."
-publish_to: 'none' 
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -13,6 +13,7 @@ dependencies:
   firebase_core: ^2.30.0
   firebase_auth: ^4.19.2
   cloud_firestore: ^4.15.2
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +22,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - web/assets/.env
